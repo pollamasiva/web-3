@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Ropa - Lux</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/lux/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<div class="container py-5">
+    <header class="mb-5">
+        <h1 class="display-4 text-center mb-3">Tienda</h1>
+        <hr class="my-4">
+    </header>
+
+    <div class="row mb-5">
+        <div class="col-md-4 mb-4">
+            <div class="card producto h-100" id="camisa" onclick="seleccionarProducto('camisa')">
+                <div class="card-body text-center">
+                    <img src="imagenes/camisa.jpg" alt="Camiseta" class="producto-imagen img-fluid mb-3">
+                    <h5 class="card-title">Camiseta </h5>
+                    <p class="card-text text-muted">L.100</p>
+                    <div class="cursor">&#x261F;</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card producto h-100" id="pantalon" onclick="seleccionarProducto('pantalon')">
+                <div class="card-body text-center">
+                    <img src="imagenes/pantalon.jpg" alt="Pantalón" class="producto-imagen img-fluid mb-3">
+                    <h5 class="card-title">Pantalón </h5>
+                    <p class="card-text text-muted">L.200</p>
+                    <div class="cursor">&#x261F;</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4 mb-4">
+            <div class="card producto h-100" id="zapatos" onclick="seleccionarProducto('zapatos')">
+                <div class="card-body text-center">
+                    <img src="imagenes/zapatos.jpg" alt="Zapatos" class="producto-imagen img-fluid mb-3">
+                    <h5 class="card-title">Zapatos </h5>
+                    <p class="card-text text-muted">L.300</p>
+                    <div class="cursor">&#x261F;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="alert alert-info" id="mensaje" role="alert">
+        <p id="texto-mensaje" class="mb-0">Selecciona un producto para comenzar</p>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="cantidad" class="form-label">Seleccione una cantidad:</label>
+                <select id="cantidad" class="form-select" onchange="actualizarCantidad()">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mt-3 mt-md-0">
+                <div class="card-body">
+                    <h5 class="card-title">Tu selección</h5>
+                    <p id="resultado-seleccion" class="card-text">No has seleccionado un producto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <button id="btn-comprar" class="btn btn-primary btn-lg" disabled>Comprar</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
