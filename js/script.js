@@ -26,10 +26,10 @@ function seleccionarProducto(producto) {
     
     actualizarCantidad();
     
-    document.getElementById('btn-comprar').disabled = false;
+    document.getElementById('btn-comprar').disabled = false; // Habilitar el botón
 }
 
-// Actualizar cant
+// Actualizar cantidad
 function actualizarCantidad() {
     const cantidad = parseInt(document.getElementById('cantidad').value);
     const mensaje = document.getElementById('resultado-seleccion');
@@ -62,7 +62,6 @@ function getNombreProducto(producto) {
     }
 }
 
-
 function getImagenProducto(producto) {
     switch(producto) {
         case 'camisa':
@@ -85,18 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const nombreProducto = getNombreProducto(productoActual);
             
             // Enlace de la imagen del producto
-            let imagenProducto;
-            switch (productoActual) {
-                case 'camisa':
-                    imagenProducto = 'https://th.bing.com/th/id/OIP.rWoLZDKZyaDOfanlkxs8vQHaIy?cb=iwp2&rs=1&pid=ImgDetMain';
-                    break;
-                case 'pantalon':
-                    imagenProducto = 'https://cdnb.lystit.com/photos/macys/612374-Cliff-927e7ba3-.jpeg';
-                    break;
-                case 'zapatos':
-                    imagenProducto = 'https://www.lifeboxset.com/wp-content/uploads/2021/04/cars-lightning-mcqueen-clogs-1265631-1200x918.jpeg';
-                    break;
-            }
+            let imagenProducto = getImagenProducto(productoActual);
+            
             // Mensaje que incluye el enlace de la imagen
             const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Aquí está la imagen: ${imagenProducto}`;
             const numeroWhatsApp = '50488517764'; // Tu número de WhatsApp
@@ -104,5 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Abrir el enlace de WhatsApp
             window.open(enlaceWhatsApp, '_blank');
-    });
+        }
+    }); // Cierre de la función addEventListener
 });
