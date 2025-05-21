@@ -26,7 +26,7 @@ function seleccionarProducto(producto) {
     
     actualizarCantidad();
     
-    document.getElementById('btn-comprar').disabled = false; // Habilitar el botón
+    document.getElementById('btn-comprar').disabled = false;
 }
 
 // Actualizar cantidad
@@ -83,12 +83,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const precioTotal = (precioUnitario * cantidad).toFixed(2);
             const nombreProducto = getNombreProducto(productoActual);
             
-            // Enlace de la imagen del producto
             let imagenProducto = getImagenProducto(productoActual);
             
-            // Mensaje que incluye el enlace de la imagen
             const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Aquí está la imagen: ${imagenProducto}`;
-            const numeroWhatsApp = '50488517764'; // Tu número de WhatsApp
+            const numeroWhatsApp = '50488517764'; 
             const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             
             // Abrir el enlace de WhatsApp
