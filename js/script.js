@@ -63,6 +63,19 @@ function getNombreProducto(producto) {
 }
 
 
+function getImagenProducto(producto) {
+    switch(producto) {
+        case 'camisa':
+            return 'https://th.bing.com/th/id/OIP.rWoLZDKZyaDOfanlkxs8vQHaIy?cb=iwp2&rs=1&pid=ImgDetMain'; 
+        case 'pantalon':
+            return 'https://cdnb.lystit.com/photos/macys/612374-Cliff-927e7ba3-.jpeg'; 
+        case 'zapatos':
+            return 'https://www.lifeboxset.com/wp-content/uploads/2021/04/cars-lightning-mcqueen-clogs-1265631-1200x918.jpeg'; 
+        default:
+            return '';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('btn-comprar').addEventListener('click', function() {
         if (productoActual) {
@@ -71,12 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const precioTotal = (precioUnitario * cantidad).toFixed(2);
             const nombreProducto = getNombreProducto(productoActual);
             const imagenProducto = document.querySelector(`#${productoActual} .producto-imagen`).src;
-            // Mensaje modificado para incluir un enlace a la imagen
-            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Puedes ver la imagen aquí: ${imagenProducto}`;
-            const numeroWhatsApp = '50488517764'; // Tu número de WhatsApp
+
+            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Aquí está la imagen: ${imagenProducto}`;
+            const numeroWhatsApp = '50488517764'; 
             const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-            
-            // Abrir el enlace de WhatsApp
             window.open(enlaceWhatsApp, '_blank');
         }
     });
