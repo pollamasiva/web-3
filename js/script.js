@@ -84,23 +84,25 @@ document.addEventListener('DOMContentLoaded', function() {
             const precioTotal = (precioUnitario * cantidad).toFixed(2);
             const nombreProducto = getNombreProducto(productoActual);
             
-            // Enlace a la página que contiene los metadatos Open Graph
-            let enlaceProducto;
+            // Enlace de la imagen del producto
+            let imagenProducto;
             switch (productoActual) {
                 case 'camisa':
-                    enlaceProducto = 'https://tu-sitio.com/camiseta'; // Cambia esto por tu enlace real
+                    imagenProducto = 'https://th.bing.com/th/id/OIP.rWoLZDKZyaDOfanlkxs8vQHaIy?cb=iwp2&rs=1&pid=ImgDetMain';
                     break;
                 case 'pantalon':
-                    enlaceProducto = 'https://tu-sitio.com/pantalon'; // Cambia esto por tu enlace real
+                    imagenProducto = 'https://cdnb.lystit.com/photos/macys/612374-Cliff-927e7ba3-.jpeg';
                     break;
                 case 'zapatos':
-                    enlaceProducto = 'https://tu-sitio.com/zapatos'; // Cambia esto por tu enlace real
+                    imagenProducto = 'https://www.lifeboxset.com/wp-content/uploads/2021/04/cars-lightning-mcqueen-clogs-1265631-1200x918.jpeg';
                     break;
             }
-            // Mensaje sin el enlace de la imagen
-            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Puedes ver más detalles aquí: ${enlaceProducto}`;
+            // Mensaje que incluye el enlace de la imagen
+            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Aquí está la imagen: ${imagenProducto}`;
             const numeroWhatsApp = '50488517764'; // Tu número de WhatsApp
             const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
             
             // Abrir el enlace de WhatsApp
             window.open(enlaceWhatsApp, '_blank');
+    });
+});
