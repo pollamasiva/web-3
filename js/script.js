@@ -83,12 +83,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const precioUnitario = precios[productoActual];
             const precioTotal = (precioUnitario * cantidad).toFixed(2);
             const nombreProducto = getNombreProducto(productoActual);
-            const imagenProducto = document.querySelector(`#${productoActual} .producto-imagen`).src;
-
-            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Aquí está la imagen: ${imagenProducto}`;
-            const numeroWhatsApp = '50488517764'; 
+            
+            // Enlace a la página que contiene los metadatos Open Graph
+            let enlaceProducto;
+            switch (productoActual) {
+                case 'camisa':
+                    enlaceProducto = 'https://tu-sitio.com/camiseta'; // Cambia esto por tu enlace real
+                    break;
+                case 'pantalon':
+                    enlaceProducto = 'https://tu-sitio.com/pantalon'; // Cambia esto por tu enlace real
+                    break;
+                case 'zapatos':
+                    enlaceProducto = 'https://tu-sitio.com/zapatos'; // Cambia esto por tu enlace real
+                    break;
+            }
+            // Mensaje sin el enlace de la imagen
+            const mensaje = `Hola, me gustaría comprar ${cantidad} ${nombreProducto}. Precio unitario: Lps.${precioUnitario}. Total: Lps.${precioTotal}. Puedes ver más detalles aquí: ${enlaceProducto}`;
+            const numeroWhatsApp = '50488517764'; // Tu número de WhatsApp
             const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            
+            // Abrir el enlace de WhatsApp
             window.open(enlaceWhatsApp, '_blank');
-        }
-    });
-});
